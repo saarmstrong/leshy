@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://2bqswqimd3b8"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bb2110nduifpl" path="res://assets/art/stag.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "stag"
+display_name = "STAG"
+attack = 3
+health = 4
+cost = 2
+tribe = "hooved"
+sigils = PackedStringArray("mighty_leap")
+artwork = ExtResource("2")
+role = "A heavy guardian. Its antlers catch flying attackers."

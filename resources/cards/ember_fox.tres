@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/fox.png" id="2"]
+[resource]
+script = ExtResource("1")
+id = "ember_fox"
+display_name = "EMBER FOX"
+attack = 0
+health = 2
+cost = 1
+cost_type = "blood"
+tribe = "canine"
+sigils = PackedStringArray("many_lives")
+artwork = ExtResource("2")
+role = "A quiet fox whose shadow stays after the offering."

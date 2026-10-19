@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://dveo23df4gnit"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cwwi2484b65sc" path="res://assets/art/grave_raven.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "grave_raven"
+display_name = "GRAVE RAVEN"
+attack = 2
+health = 2
+cost = 4
+cost_type = "bones"
+tribe = "avian"
+sigils = PackedStringArray("waterborne")
+artwork = ExtResource("2")
+role = "A drowned bird that submerges during opposing attacks."

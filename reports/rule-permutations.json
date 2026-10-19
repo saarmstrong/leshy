@@ -1,0 +1,21 @@
+{
+	"cases": 105514,
+	"combat": 73728,
+	"contract_checks": 1914082,
+	"engine_version": "4.7.2-stable (arch_linux)",
+	"items": 4008,
+	"payments": 27384,
+	"sigils": [
+		"worthy_sacrifice",
+		"many_lives",
+		"unkillable",
+		"bone_king",
+		"airborne",
+		"mighty_leap",
+		"waterborne",
+		"stinky",
+		"sharp_quills",
+		"touch_of_death"
+	],
+	"status": "passed"
+}

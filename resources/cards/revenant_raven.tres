@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/grave_raven.png" id="2"]
+[resource]
+script = ExtResource("1")
+id = "revenant_raven"
+display_name = "REVENANT"
+attack = 1
+health = 1
+cost = 2
+cost_type = "bones"
+tribe = "avian"
+sigils = PackedStringArray("unkillable")
+artwork = ExtResource("2")
+role = "The same cold feather returns to your palm."

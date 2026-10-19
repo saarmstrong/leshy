@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://dy6ts5pxqqceq"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c1ylcmh25waft" path="res://assets/art/bone_stoat.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "bone_stoat"
+display_name = "BONE STOAT"
+attack = 1
+cost = 2
+cost_type = "bones"
+sigils = PackedStringArray("sharp_quills")
+artwork = ExtResource("2")
+role = "A small skeleton with jagged ribs. Attackers suffer a retaliatory wound."

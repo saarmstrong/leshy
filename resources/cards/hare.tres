@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/hare.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "hare"
+display_name = "HARE"
+attack = 0
+health = 1
+cost = 0
+cost_type = "blood"
+tribe = "none"
+sacrificable = true
+sigils = PackedStringArray()
+artwork = ExtResource("2")
+role = "Free to play. No attack; a small blocker and a cheap offering."

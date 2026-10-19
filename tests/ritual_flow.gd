@@ -11,15 +11,17 @@ func run_checks() -> void:
 	for low_motion in [false, true]:
 		var scene = load("res://scenes/attack_preview.tscn").instantiate()
 		root.add_child(scene)
+		var expected_deck: int = scene.STARTING_DECK.size() - 3
 		scene.reduced.button_pressed = low_motion
 		assert(scene.hand.size() == 4 and scene.hand[3].animal == "SQUIRREL")
-		assert(scene.deck.size() == 9 and scene.squirrels == 9)
+		assert(scene.deck.size() == expected_deck and scene.squirrels == 9)
 		assert(scene.board.count(null) == 8 and not scene.hand_open)
 		var fox_index := -1
 		for i in range(3):
-			if scene.hand[i].animal == "FOX":
+			if scene.hand[i].cost == 1:
 				fox_index = i
 		assert(fox_index >= 0)
+		var played_animal: String = scene.hand[fox_index].animal
 		var first = scene.hand[0]
 		scene.hand[0] = scene.hand[fox_index]
 		scene.hand[fox_index] = first
@@ -81,7 +83,7 @@ func run_checks() -> void:
 		assert(scene.busy)
 		scene._end_round()
 		await wait_idle(scene)
-		assert(scene.board[0].animal == "FOX" and scene.discard == ["squirrel"])
+		assert(scene.board[0].animal == played_animal and scene.discard == ["squirrel"])
 		var held = scene.reserve[1]
 		scene._end_round()
 		await wait_idle(scene)
@@ -97,14 +99,14 @@ func run_checks() -> void:
 		assert(scene.hand.size() == hand_size + 1 and scene.squirrels == 8)
 		assert(not scene.draw_required and not scene.action.disabled)
 		await scene._draw_from_deck(false)
-		assert(scene.deck.size() == 9) # No second draw from other pile.
+		assert(scene.deck.size() == expected_deck) # No second draw from other pile.
 		# An exhausted pile cannot consume the turn's draw choice.
 		scene.draw_required = true
 		scene.squirrels = 0
 		await scene._draw_from_deck(true)
 		assert(scene.draw_required)
 		await scene._draw_from_deck(false)
-		assert(scene.deck.size() == 8 and not scene.draw_required)
+		assert(scene.deck.size() == expected_deck - 1 and not scene.draw_required)
 		# More than four cards are retained and reachable through fan pages.
 		for i in range(9):
 			scene.hand.append(scene._make_card("squirrel"))
@@ -122,7 +124,7 @@ func run_checks() -> void:
 		scene.balance = 5
 		assert(scene._check_outcome())
 		scene._end_round()
-		assert(scene.squirrels == 9 and scene.deck.size() == 9)
+		assert(scene.squirrels == 9 and scene.deck.size() == expected_deck)
 		assert(not scene.hand_open and not scene.finished and not scene.draw_required)
 		# Both player rows accept free squirrels and paid creatures.
 		scene.hand.append(scene._make_card("squirrel"))
@@ -146,11 +148,11 @@ func run_checks() -> void:
 		scene.enemies[3] = enemy
 		enemy.position = scene._slot(3, true)
 		await scene._strike(enemy, 3, true)
-		assert(scene.board[7].health == 1) # Empty front exposes the back.
+		assert(scene.board[7].health == 2) # The exposed fox reduces the opposing hit with Stinky.
 		scene.board[3] = scene._make_card("squirrel")
 		scene.board[3].position = scene._slot(3)
 		await scene._strike(enemy, 3, true)
-		assert(scene.board[3] == null and scene.board[7].health == 1)
+		assert(scene.board[3] == null and scene.board[7].health == 2)
 		# Shuffled opening deals have three species, a one-blood play, and a squirrel.
 		var seen := {}
 		for attempt in range(40):
@@ -164,7 +166,7 @@ func run_checks() -> void:
 				playable = playable or card.cost == 1
 				signature += card.animal
 			assert(species.size() == 3 and playable)
-			assert(scene.hand[3].animal == "SQUIRREL" and scene.deck.size() == 9)
+			assert(scene.hand[3].animal == "SQUIRREL" and scene.deck.size() == expected_deck)
 			seen[signature] = true
 		assert(seen.size() > 1)
 		scene.queue_free()

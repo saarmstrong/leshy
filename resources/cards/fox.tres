@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://doeqtqrxpja6w"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cw6m0ym23fa54" path="res://assets/art/fox.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "fox"
+display_name = "FOX"
+attack = 2
+health = 3
+cost = 1
+tribe = "canine"
+sigils = PackedStringArray("stinky")
+artwork = ExtResource("2")
+role = "A steady attacker whose musk weakens the opposing lane."

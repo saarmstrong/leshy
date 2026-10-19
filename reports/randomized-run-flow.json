@@ -1,0 +1,16 @@
+{
+	"commands": 180,
+	"contract_checks": 2174,
+	"engine_version": "4.7.2-stable (arch_linux)",
+	"event_visits": {
+		"battle": 59,
+		"fire": 24,
+		"pack": 12,
+		"reward": 47,
+		"shrine": 6
+	},
+	"first_seed": 0,
+	"save_restores": 148,
+	"seeds": 32,
+	"status": "passed"
+}

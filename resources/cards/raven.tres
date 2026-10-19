@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://c757ybm4jxjl1"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cpn8ouadxb1iu" path="res://assets/art/raven.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "raven"
+display_name = "RAVEN"
+attack = 1
+health = 2
+cost = 1
+tribe = "avian"
+sigils = PackedStringArray("airborne")
+artwork = ExtResource("2")
+role = "A light flying attacker. Ordinary blockers cannot catch it."

@@ -1,0 +1,93 @@
+{
+  "actions": [
+    {
+      "actor": "hand",
+      "enemy": false,
+      "kind": "attack",
+      "lane": 0
+    }
+  ],
+  "context": {
+    "case": 64165,
+    "parameters": {
+      "invalid_attack": {
+        "actor": "hand",
+        "enemy": false,
+        "kind": "attack",
+        "lane": 0
+      }
+    },
+    "suite": "rule-permutations"
+  },
+  "detail": {},
+  "initial": {
+    "balance": 0,
+    "bones": 0,
+    "cards": {
+      "board": {
+        "attack": 2,
+        "base_id": "wolf",
+        "cost": 2,
+        "cost_type": "blood",
+        "health": 4,
+        "max_health": 4,
+        "owner": "player",
+        "sacrificable": true,
+        "sigils": []
+      },
+      "enemy": {
+        "attack": 2,
+        "base_id": "wolf",
+        "cost": 2,
+        "cost_type": "blood",
+        "health": 4,
+        "max_health": 4,
+        "owner": "enemy",
+        "sacrificable": true,
+        "sigils": []
+      },
+      "hand": {
+        "attack": 2,
+        "base_id": "wolf",
+        "cost": 2,
+        "cost_type": "blood",
+        "health": 4,
+        "max_health": 4,
+        "owner": "player",
+        "sacrificable": true,
+        "sigils": []
+      }
+    },
+    "enemy": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "fan_active": false,
+    "hand": [
+      "hand"
+    ],
+    "items": [],
+    "player": [
+      "",
+      "",
+      "",
+      "",
+      "board",
+      "",
+      "",
+      ""
+    ],
+    "reserve": [
+      "",
+      "enemy",
+      "",
+      ""
+    ],
+    "skip_enemy": false,
+    "starvation": 0
+  },
+  "message": "Hand/reserve/wrong-slot attacker was accepted",
+  "expected_error": "Invalid attacker."
+}

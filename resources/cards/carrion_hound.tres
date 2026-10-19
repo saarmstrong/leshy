@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" format=3 uid="uid://g13xo3tfhsdb"]
+
+[ext_resource type="Script" uid="uid://dmtmjs5dvn082" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bdhc604ohkoff" path="res://assets/art/carrion_hound.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "carrion_hound"
+display_name = "CARRION HOUND"
+attack = 3
+health = 3
+cost = 6
+cost_type = "bones"
+tribe = "canine"
+sigils = PackedStringArray("touch_of_death")
+artwork = ExtResource("2")
+role = "A hungry 3/3 corpse. Any wound it deals to a creature is lethal."

@@ -1,0 +1,675 @@
+{
+	"actions": [
+		{
+			"actor": "c13",
+			"kind": "play",
+			"offerings": [],
+			"slot": 4
+		},
+		{
+			"actor": "raven#c7",
+			"kind": "play",
+			"offerings": [
+				"c13"
+			],
+			"slot": 7
+		},
+		{
+			"actor": "raven#c7",
+			"enemy": false,
+			"kind": "attack",
+			"lane": 7
+		},
+		{
+			"kind": "advance"
+		},
+		{
+			"actor": "c15",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 1
+		},
+		{
+			"actor": "c14",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 2
+		},
+		{
+			"card": {
+				"attack": 4,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"stinky",
+					"airborne"
+				]
+			},
+			"kind": "spawn",
+			"lane": 0,
+			"token": "c16"
+		},
+		{
+			"kind": "cleanup"
+		},
+		{
+			"card": {
+				"attack": 0,
+				"base_id": "squirrel",
+				"cost": 0,
+				"cost_type": "blood",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": []
+			},
+			"kind": "draw",
+			"source": "main",
+			"token": "c17"
+		},
+		{
+			"actor": "raven#c7",
+			"enemy": false,
+			"kind": "attack",
+			"lane": 7
+		},
+		{
+			"kind": "advance"
+		},
+		{
+			"actor": "c16",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 0
+		},
+		{
+			"actor": "c15",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 1
+		},
+		{
+			"actor": "c14",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 2
+		},
+		{
+			"kind": "cleanup"
+		},
+		{
+			"card": {
+				"attack": 0,
+				"base_id": "squirrel",
+				"cost": 0,
+				"cost_type": "blood",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": []
+			},
+			"kind": "draw",
+			"source": "main",
+			"token": "c18"
+		},
+		{
+			"actor": "stag#c3",
+			"kind": "play",
+			"offerings": [],
+			"slot": -1
+		},
+		{
+			"actor": "raven#c7",
+			"enemy": false,
+			"kind": "attack",
+			"lane": 7
+		},
+		{
+			"kind": "advance"
+		},
+		{
+			"actor": "c16",
+			"enemy": true,
+			"kind": "attack",
+			"lane": 0
+		}
+	],
+	"context": {
+		"round": 3,
+		"seed": 0,
+		"suite": "randomized-battles"
+	},
+	"final_state": {
+		"balance": -5,
+		"bones": 1,
+		"cards": {
+			"bone_stoat#c2": {
+				"attack": 1,
+				"base_id": "bone_stoat",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 2,
+				"max_health": 2,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"sharp_quills",
+					"stinky",
+					"bone_king"
+				]
+			},
+			"c13": {
+				"attack": 0,
+				"base_id": "squirrel",
+				"cost": 0,
+				"cost_type": "blood",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": []
+			},
+			"c14": {
+				"attack": 2,
+				"base_id": "raven",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"airborne",
+					"sharp_quills",
+					"touch_of_death"
+				]
+			},
+			"c15": {
+				"attack": 1,
+				"base_id": "bone_stoat",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 3,
+				"max_health": 3,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"sharp_quills",
+					"stinky"
+				]
+			},
+			"c16": {
+				"attack": 4,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"stinky",
+					"airborne"
+				]
+			},
+			"fox#c1": {
+				"attack": 2,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"stinky"
+				]
+			},
+			"fox#c12": {
+				"attack": 3,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"stinky",
+					"waterborne",
+					"bone_king"
+				]
+			},
+			"grave_raven#c10": {
+				"attack": 4,
+				"base_id": "grave_raven",
+				"cost": 4,
+				"cost_type": "bones",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"waterborne",
+					"mighty_leap"
+				]
+			},
+			"grave_raven#c11": {
+				"attack": 4,
+				"base_id": "grave_raven",
+				"cost": 4,
+				"cost_type": "bones",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"waterborne",
+					"bone_king"
+				]
+			},
+			"ossuary_hound#c5": {
+				"attack": 3,
+				"base_id": "ossuary_hound",
+				"cost": 3,
+				"cost_type": "blood",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"bone_king"
+				]
+			},
+			"raven#c7": {
+				"attack": 3,
+				"base_id": "raven",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"airborne",
+					"touch_of_death"
+				]
+			},
+			"revenant_raven#c8": {
+				"attack": 3,
+				"base_id": "revenant_raven",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"unkillable",
+					"waterborne"
+				]
+			},
+			"stag#c3": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 7,
+				"max_health": 7,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"many_lives"
+				]
+			},
+			"stag#c4": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"stinky"
+				]
+			},
+			"stag#c6": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 6,
+				"max_health": 6,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"sharp_quills"
+				]
+			},
+			"stag#c9": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 6,
+				"max_health": 6,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap"
+				]
+			}
+		},
+		"deck": [
+			"stag#c9",
+			"stag#c6",
+			"fox#c12",
+			"fox#c1",
+			"revenant_raven#c8",
+			"grave_raven#c11",
+			"grave_raven#c10"
+		],
+		"enemy": [
+			"c16",
+			"c15",
+			"c14",
+			""
+		],
+		"fan_active": false,
+		"hand": [
+			"stag#c3",
+			"bone_stoat#c2",
+			"stag#c4",
+			"ossuary_hound#c5"
+		],
+		"items": [],
+		"player": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"raven#c7"
+		],
+		"reserve": [
+			"",
+			"",
+			"",
+			""
+		],
+		"skip_enemy": false,
+		"squirrels": 9,
+		"starvation": 0
+	},
+	"initial": {
+		"balance": 0,
+		"bones": 0,
+		"cards": {
+			"bone_stoat#c2": {
+				"attack": 1,
+				"base_id": "bone_stoat",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 2,
+				"max_health": 2,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"sharp_quills",
+					"stinky",
+					"bone_king"
+				]
+			},
+			"c13": {
+				"attack": 0,
+				"base_id": "squirrel",
+				"cost": 0,
+				"cost_type": "blood",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": []
+			},
+			"c14": {
+				"attack": 2,
+				"base_id": "raven",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"airborne",
+					"sharp_quills",
+					"touch_of_death"
+				]
+			},
+			"c15": {
+				"attack": 1,
+				"base_id": "bone_stoat",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 3,
+				"max_health": 3,
+				"owner": "enemy",
+				"sacrificable": true,
+				"sigils": [
+					"sharp_quills",
+					"stinky"
+				]
+			},
+			"fox#c1": {
+				"attack": 2,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"stinky"
+				]
+			},
+			"fox#c12": {
+				"attack": 3,
+				"base_id": "fox",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 5,
+				"max_health": 5,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"stinky",
+					"waterborne",
+					"bone_king"
+				]
+			},
+			"grave_raven#c10": {
+				"attack": 4,
+				"base_id": "grave_raven",
+				"cost": 4,
+				"cost_type": "bones",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"waterborne",
+					"mighty_leap"
+				]
+			},
+			"grave_raven#c11": {
+				"attack": 4,
+				"base_id": "grave_raven",
+				"cost": 4,
+				"cost_type": "bones",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"waterborne",
+					"bone_king"
+				]
+			},
+			"ossuary_hound#c5": {
+				"attack": 3,
+				"base_id": "ossuary_hound",
+				"cost": 3,
+				"cost_type": "blood",
+				"health": 3,
+				"max_health": 3,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"bone_king"
+				]
+			},
+			"raven#c7": {
+				"attack": 3,
+				"base_id": "raven",
+				"cost": 1,
+				"cost_type": "blood",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"airborne",
+					"touch_of_death"
+				]
+			},
+			"revenant_raven#c8": {
+				"attack": 3,
+				"base_id": "revenant_raven",
+				"cost": 2,
+				"cost_type": "bones",
+				"health": 1,
+				"max_health": 1,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"unkillable",
+					"waterborne"
+				]
+			},
+			"stag#c3": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 7,
+				"max_health": 7,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"many_lives"
+				]
+			},
+			"stag#c4": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 4,
+				"max_health": 4,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"stinky"
+				]
+			},
+			"stag#c6": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 6,
+				"max_health": 6,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap",
+					"sharp_quills"
+				]
+			},
+			"stag#c9": {
+				"attack": 3,
+				"base_id": "stag",
+				"cost": 2,
+				"cost_type": "blood",
+				"health": 6,
+				"max_health": 6,
+				"owner": "player",
+				"sacrificable": true,
+				"sigils": [
+					"mighty_leap"
+				]
+			}
+		},
+		"deck": [
+			"stag#c4",
+			"ossuary_hound#c5",
+			"stag#c9",
+			"stag#c6",
+			"fox#c12",
+			"fox#c1",
+			"revenant_raven#c8",
+			"grave_raven#c11",
+			"grave_raven#c10"
+		],
+		"enemy": [
+			"",
+			"",
+			"",
+			""
+		],
+		"fan_active": false,
+		"hand": [
+			"raven#c7",
+			"stag#c3",
+			"bone_stoat#c2",
+			"c13"
+		],
+		"items": [],
+		"player": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"reserve": [
+			"",
+			"c15",
+			"c14",
+			""
+		],
+		"skip_enemy": false,
+		"squirrels": 9,
+		"starvation": 0
+	}
+}

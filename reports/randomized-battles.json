@@ -1,0 +1,69 @@
+{
+	"actions": 77086,
+	"contract_checks": 3630815,
+	"coverage": {
+		"events": {
+			"attack": 26003,
+			"attack_blocked": 6484,
+			"attack_return": 26003,
+			"bones_gained": 9763,
+			"created": 901,
+			"damage": 5601,
+			"death": 11208,
+			"direct_damage": 21367,
+			"item_used": 4452,
+			"outcome": 4096,
+			"payment": 16999,
+			"played": 16999,
+			"returned": 732,
+			"sacrifice": 9056,
+			"sigil": 12004,
+			"starvation": 5,
+			"stolen": 525
+		},
+		"invalid_actions": 2025,
+		"items": {
+			"fan": 823,
+			"fish_hook": 525,
+			"hourglass": 827,
+			"pliers": 833,
+			"scissors": 543,
+			"squirrel_bottle": 901
+		},
+		"max_rounds": 19,
+		"plays": {
+			"ashen_stag": 1060,
+			"bone_stoat": 462,
+			"carrion_hound": 52,
+			"ember_fox": 1012,
+			"fox": 2778,
+			"grave_raven": 139,
+			"hare": 994,
+			"ossuary_hound": 425,
+			"raven": 1024,
+			"revenant_raven": 562,
+			"squirrel": 7172,
+			"stag": 653,
+			"wolf": 666
+		},
+		"sigils": {
+			"airborne": 2925,
+			"bone_king": 515,
+			"many_lives": 1101,
+			"mighty_leap": 288,
+			"sharp_quills": 965,
+			"stinky": 2558,
+			"touch_of_death": 641,
+			"unkillable": 732,
+			"waterborne": 1170,
+			"worthy_sacrifice": 1109
+		}
+	},
+	"engine_version": "4.7.2-stable (arch_linux)",
+	"first_seed": 0,
+	"losses": 2381,
+	"seeds": 4096,
+	"serialized_replays": 133,
+	"status": "passed",
+	"wins": 1715
+}

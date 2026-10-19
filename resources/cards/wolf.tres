@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/wolf.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "wolf"
+display_name = "WOLF"
+attack = 2
+health = 4
+cost = 2
+cost_type = "blood"
+tribe = "canine"
+sacrificable = true
+sigils = PackedStringArray()
+artwork = ExtResource("2")
+role = "A sturdy predator. Two offerings buy 2 attack and 4 health."

@@ -1,0 +1,253 @@
+{
+  "checks": [
+    {
+      "name": "battle_rules",
+      "passed": true,
+      "seconds": 0.24,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/battle_rules.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: pure ordered actions, six sigils, combined retaliation, payments, deaths, bones, two-row targeting\n"
+    },
+    {
+      "name": "card_definitions",
+      "passed": true,
+      "seconds": 0.8,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/card_definitions.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: resource validation, shared catalog, permanent/temporary isolation, sigil copying, sacrifice eligibility\n"
+    },
+    {
+      "name": "sigil_playback",
+      "passed": true,
+      "seconds": 5.81,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/sigil_playback.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: airborne/reach, sigil playback, retaliation, display health, event journal, reduced motion = false\nPASS: airborne/reach, sigil playback, retaliation, display health, event journal, reduced motion = true\n"
+    },
+    {
+      "name": "bones_flow",
+      "passed": true,
+      "seconds": 11.3,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/bones_flow.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: stacked squirrels, blood commit, bone award/payment/reset, undead sacrifice; reduced = false\nPASS: stacked squirrels, blood commit, bone award/payment/reset, undead sacrifice; reduced = true\n"
+    },
+    {
+      "name": "draw_phase",
+      "passed": true,
+      "seconds": 1.56,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/draw_phase.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: mandatory choice, both piles, exact one draw, rapid double tap, exhausted-pile fallback\n"
+    },
+    {
+      "name": "end_state",
+      "passed": true,
+      "seconds": 11.48,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/end_state.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: combat wipeouts, reserves, explicit result, sacrifice safety, varied animated whispers; reduced = false\nPASS: combat wipeouts, reserves, explicit result, sacrifice safety, varied animated whispers; reduced = true\n"
+    },
+    {
+      "name": "ritual_flow",
+      "passed": true,
+      "seconds": 22.45,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/ritual_flow.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: squirrel pile, opening hand, one chosen draw, blood, reserve, unlimited paged fan, reset; reduced = false\nPASS: squirrel pile, opening hand, one chosen draw, blood, reserve, unlimited paged fan, reset; reduced = true\n"
+    },
+    {
+      "name": "run_flow",
+      "passed": true,
+      "seconds": 0.98,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/run_flow.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: title, map branches, event commitment, unique upgrades, battle handoff, win/loss, save/resume\n"
+    },
+    {
+      "name": "living_table",
+      "passed": true,
+      "seconds": 48.01,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/living_table.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: all undead attack through full round in both rows; card motion, teeth, three hauntings, reset; reduced=false\nPASS: all undead attack through full round in both rows; card motion, teeth, three hauntings, reset; reduced=true\nPASS: Bone Stoat versus Stinky explicitly displays its zero-attack block\n"
+    },
+    {
+      "name": "starvation_and_bone_damage",
+      "passed": true,
+      "seconds": 8.97,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/starvation_and_bone_damage.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: all bone creatures deal face damage in both rows; exhaustion resolves/reset; reduced=false\nPASS: all bone creatures deal face damage in both rows; exhaustion resolves/reset; reduced=true\nPASS: live encounters match the shared simulation schedule at all three levels\n"
+    },
+    {
+      "name": "balance_simulation",
+      "passed": true,
+      "seconds": 8.6,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/balance_simulation.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nBALANCE level=0 policy=careful win=95.0% mean_rounds=4.12 early_losses=15\nBALANCE level=0 policy=reckless win=91.3% mean_rounds=4.66 early_losses=6\nBALANCE level=1 policy=careful win=64.0% mean_rounds=4.49 early_losses=0\nBALANCE level=1 policy=reckless win=19.7% mean_rounds=4.18 early_losses=33\nBALANCE level=2 policy=careful win=62.0% mean_rounds=6.99 early_losses=15\nBALANCE level=2 policy=reckless win=14.0% mean_rounds=3.83 early_losses=75\nPASS: 1,200 seeded encounters, deterministic replay, no stalls, difficulty and bone-use guardrails\n"
+    },
+    {
+      "name": "survival_items_rules",
+      "passed": true,
+      "seconds": 0.61,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/survival_items_rules.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: four survival sigils, combined deaths/upgrades, overpayment, slot safety, all six items and expiration\n"
+    },
+    {
+      "name": "survival_items_flow",
+      "passed": true,
+      "seconds": 23.28,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/survival_items_flow.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: live survival animations/replays, blood UI, satchel targeting/cancel/draw, hook and timed effects; reduced=false\nPASS: live survival animations/replays, blood UI, satchel targeting/cancel/draw, hook and timed effects; reduced=true\nPASS: sigil rewards, reachable backpack, capacity, once-only choice and used-inventory save/resume\n"
+    },
+    {
+      "name": "rule_permutations",
+      "passed": true,
+      "seconds": 17.89,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/rule_permutations.gd"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: 105514 exhaustive cases (combat=73728, payments=27384, items=4008); 1914082 contracts\n"
+    },
+    {
+      "name": "randomized_battles",
+      "passed": true,
+      "seconds": 5.81,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/randomized_battles.gd",
+        "--",
+        "--count=512",
+        "--seed=0"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: 512 seeded mixed-deck/item battles; 9440 actions, exact full-trace replay; 443589 contracts\n"
+    },
+    {
+      "name": "randomized_run_flow",
+      "passed": true,
+      "seconds": 39.47,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/randomized_run_flow.gd",
+        "--",
+        "--count=32",
+        "--seed=0"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nPASS: 32 real-scene randomized runs, 148 interrupted save/restores; 2174 contracts\n"
+    }
+  ],
+  "seed": 0,
+  "seeds": 512,
+  "run_seeds": 32
+}

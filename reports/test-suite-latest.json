@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "name": "randomized_battles",
+      "passed": true,
+      "seconds": 0.6,
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "/home/andy/Projects/leshy-mobile",
+        "--script",
+        "res://tests/randomized_battles.gd",
+        "--",
+        "--count=512",
+        "--seed=0",
+        "--replay=/home/andy/Projects/leshy-mobile/reports/replay-sample.json"
+      ],
+      "timeout": false,
+      "output": "Godot Engine v4.7.2.stable.arch_linux.ed1daf0bf (2026-08-17 01:18:38 UTC) - https://godotengine.org\n\nREPLAY complete: 20 actions; terminal=loss\n"
+    }
+  ],
+  "seed": 0,
+  "seeds": 512,
+  "run_seeds": 32
+}
