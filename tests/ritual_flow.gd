@@ -14,7 +14,15 @@ func run_checks() -> void:
 		scene.reduced.button_pressed = low_motion
 		assert(scene.hand.size() == 4 and scene.hand[3].animal == "SQUIRREL")
 		assert(scene.deck.size() == 9 and scene.squirrels == 9)
-		assert(scene.board.count(null) == 4 and not scene.hand_open)
+		assert(scene.board.count(null) == 8 and not scene.hand_open)
+		var fox_index := -1
+		for i in range(3):
+			if scene.hand[i].animal == "FOX":
+				fox_index = i
+		assert(fox_index >= 0)
+		var first = scene.hand[0]
+		scene.hand[0] = scene.hand[fox_index]
+		scene.hand[fox_index] = first
 		assert(not scene.draw_required)
 		await scene._draw_from_deck(true)
 		assert(scene.hand.size() == 4) # No extra first-turn draw.
@@ -116,6 +124,49 @@ func run_checks() -> void:
 		scene._end_round()
 		assert(scene.squirrels == 9 and scene.deck.size() == 9)
 		assert(not scene.hand_open and not scene.finished and not scene.draw_required)
+		# Both player rows accept free squirrels and paid creatures.
+		scene.hand.append(scene._make_card("squirrel"))
+		scene._select_card(scene.hand.size() - 1)
+		scene._choose_lane(4)
+		await wait_idle(scene)
+		assert(scene.board[4].animal == "SQUIRREL")
+		scene._open_inline_offering(4)
+		assert(is_instance_valid(scene.modal))
+		scene._close_modal()
+		scene.hand.append(scene._make_card("fox"))
+		scene._select_card(scene.hand.size() - 1)
+		scene._choose_lane(4)
+		scene._choose_lane(7)
+		await wait_idle(scene)
+		assert(scene.board[4] == null and scene.board[7].animal == "FOX")
+		assert(scene.board[7].position == scene._slot(7))
+		await scene._strike(scene.board[7], 7)
+		assert(scene.balance == 2) # Back row attacks its corresponding enemy lane.
+		var enemy = scene._make_card("wolf")
+		scene.enemies[3] = enemy
+		enemy.position = scene._slot(3, true)
+		await scene._strike(enemy, 3, true)
+		assert(scene.board[7].health == 1) # Empty front exposes the back.
+		scene.board[3] = scene._make_card("squirrel")
+		scene.board[3].position = scene._slot(3)
+		await scene._strike(enemy, 3, true)
+		assert(scene.board[3] == null and scene.board[7].health == 1)
+		# Shuffled opening deals have three species, a one-blood play, and a squirrel.
+		var seen := {}
+		for attempt in range(40):
+			scene._reset()
+			var species := {}
+			var playable := false
+			var signature := ""
+			for i in range(3):
+				var card = scene.hand[i]
+				species[card.animal] = true
+				playable = playable or card.cost == 1
+				signature += card.animal
+			assert(species.size() == 3 and playable)
+			assert(scene.hand[3].animal == "SQUIRREL" and scene.deck.size() == 9)
+			seen[signature] = true
+		assert(seen.size() > 1)
 		scene.queue_free()
 		await process_frame
 		print("PASS: squirrel pile, opening hand, one chosen draw, blood, reserve, unlimited paged fan, reset; reduced = ", low_motion)

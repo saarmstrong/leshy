@@ -12,7 +12,7 @@ const DATA = {
 	"stag": ["STAG", 3, 4, 2],
 	"wolf": ["WOLF", 2, 4, 2],
 }
-var board: Array = [null, null, null, null]
+var board: Array = [null, null, null, null, null, null, null, null]
 var enemies: Array = [null, null, null, null]
 var reserve: Array = [null, null, null, null]
 var reserve_index := 0
@@ -61,14 +61,14 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_label("T H E   H O L L O W", Vector2(0, 125), 19)
 	counter = _label("", Vector2(0, 155), 10, AMBER)
-	status = _label("", Vector2(12, 710), 12)
+	status = _label("", Vector2(12, 75), 12)
 	status.size = Vector2(366, 33)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	action = _button("END ROUND", Vector2(252, 790), Vector2(124, 46), _end_round)
 	cancel = _button("HAND", Vector2(132, 790), Vector2(108, 46), _hand_control)
 	reduced = CheckButton.new()
 	reduced.text = "Reduced motion"
-	reduced.position = Vector2(14, 75)
+	reduced.position = Vector2(14, 25)
 	reduced.size = Vector2(180, 44)
 	reduced.add_theme_font_size_override("font_size", 12)
 	add_child(reduced)
@@ -82,7 +82,7 @@ func _ready() -> void:
 	whisper.size.x = 350
 	whisper.modulate.a = 0
 	whisper.z_index = 51
-	for row in [["WAITING IN THE DARK", 168], ["OPPONENT", 305], ["YOUR CREATURES", 440], ["YOUR HAND", 575]]:
+	for row in [["WAITING IN THE DARK", 168], ["OPPONENT", 305], ["YOUR FRONT ROW", 440], ["YOUR BACK ROW", 575]]:
 		_label(row[0], Vector2(0, row[1]), 8, AMBER)
 	deck_button = _button("DECK", Vector2(14, 790), Vector2(108, 46), _open_deck)
 	main_draw = _button("MAIN", Vector2(132, 737), Vector2(108, 46), _draw_from_deck.bind(false))
@@ -137,7 +137,7 @@ func _make_card(id: String) -> Node2D:
 	return card
 
 func _slot(lane: int, enemy := false) -> Vector2:
-	return Vector2(55.5 + lane * 93, 376 if enemy else 511)
+	return Vector2(55.5 + (lane % 4) * 93, 376 if enemy else (646 if lane >= 4 else 511))
 
 func _reserve_slot(lane: int) -> Vector2:
 	return Vector2(55.5 + lane * 93, 241)
@@ -175,7 +175,7 @@ func _reset() -> void:
 	for card in board + enemies + reserve + hand:
 		if is_instance_valid(card):
 			card.queue_free()
-	board = [null, null, null, null]
+	board = [null, null, null, null, null, null, null, null]
 	enemies = [null, null, null, null]
 	reserve = [null, null, null, null]
 	reserve_index = 0
@@ -186,6 +186,7 @@ func _reset() -> void:
 	round_number = 1
 	draw_index = 0
 	deck = STARTING_DECK.duplicate()
+	deck.shuffle()
 	discard.clear()
 	_close_modal()
 	finished = false
@@ -197,8 +198,8 @@ func _reset() -> void:
 	enemies[1].position = _slot(1, true)
 	_queue_enemy(2)
 	_queue_enemy(1)
-	for i in range(3):
-		hand.append(_make_card(deck.pop_front()))
+	for id in _opening_deal():
+		hand.append(_make_card(id))
 	hand.append(_make_card("squirrel"))
 	_layout_hand(false)
 	status.text = "Open your hand. Play a squirrel to pay in blood."
@@ -235,9 +236,9 @@ func _layout_hand(animated := true) -> void:
 		if not card.visible:
 			continue
 		var offset: float = local_index - (count - 1) / 2.0
-		var destination := Vector2(195 + offset * (64 if hand_open else 23), (630 if hand_open else 677) + absf(offset) * 4)
+		var destination := Vector2(195 + offset * (64 if hand_open else 23), (642 if hand_open else 719) + absf(offset) * 4)
 		var angle := offset * (0.075 if hand_open else 0.11)
-		var card_scale := Vector2(0.93, 0.93) if hand_open else Vector2(0.4, 0.4)
+		var card_scale := Vector2(0.93, 0.93) if hand_open else Vector2(0.22, 0.22)
 		card.z_index = 8 + local_index
 		card.selected = card == selected
 		card.queue_redraw()
@@ -262,8 +263,8 @@ func _refresh() -> void:
 	previous_hand.visible = hand_open and hand_page > 0
 	next_hand.visible = hand_open and (hand_page + 1) * 5 < hand.size()
 	deck_button.disabled = busy
-	inspect_button.text = "CARD INFO" if selected else "OFFERINGS"
-	inspect_button.disabled = busy
+	inspect_button.text = "CARD INFO" if selected else "HOLD CARD"
+	inspect_button.disabled = busy or selected == null
 	action.disabled = busy or (draw_required and not finished)
 	cancel.disabled = busy
 	cancel.text = "CANCEL PLAY" if selected else ("HIDE HAND" if hand_open else "HAND · %d" % hand.size())
@@ -293,11 +294,11 @@ func _select_card(index: int) -> void:
 	if selected.cost == 0:
 		status.text = "%s is free. Tap an empty lane." % selected.animal.capitalize()
 	else:
-		status.text = "%s needs %d offering(s). Tap your creatures." % [selected.animal.capitalize(), selected.cost]
+		status.text = "%s needs %d blood. Hold a creature to offer." % [selected.animal.capitalize(), selected.cost]
 	_refresh()
 
 func _choose_lane(lane: int) -> void:
-	if busy or finished or draw_required or selected == null or lane < 0 or lane > 3:
+	if busy or finished or draw_required or selected == null or lane < 0 or lane > 7:
 		return
 	var card = board[lane]
 	if card != null and selected.cost > 0:
@@ -337,7 +338,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var point := get_global_mouse_position()
 		if busy or finished or is_instance_valid(modal):
 			return
-		if not hand_open and Rect2(106, 632, 178, 74).has_point(point):
+		if not hand_open and Rect2(106, 707, 178, 30).has_point(point):
 			_hand_control()
 			return
 		if hand_open:
@@ -345,17 +346,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				if hand[i].visible and Rect2(-40, -59, 80, 118).has_point(hand[i].to_local(point)):
 					_select_card(i)
 					return
-		if point.y >= 449 and point.y <= 573:
+		if (point.y >= 449 and point.y <= 573) or (point.y >= 584 and point.y <= 706):
 			if point.x < 14 or point.x > 376:
 				return
-			press_lane = clampi(int((point.x - 9) / 93), 0, 3)
+			press_lane = clampi(int((point.x - 9) / 93), 0, 3) + (4 if point.y >= 584 else 0)
 			press_origin = point
 			press_age = 0
 			press_canceled = false
 			hold_consumed = false
 
 func _place(lane: int) -> void:
-	if busy or finished or draw_required or lane < 0 or lane > 3 or selected == null or offerings.size() != selected.cost:
+	if busy or finished or draw_required or lane < 0 or lane > 7 or selected == null or offerings.size() != selected.cost:
 		return
 	if board[lane] != null and not offerings.has(board[lane]):
 		status.text = "That lane is occupied. Choose an empty or marked slot."
@@ -419,9 +420,12 @@ func _strike(card: Node2D, lane: int, enemy := false) -> void:
 	if card.power == 0:
 		return
 	var defenders: Array = board if enemy else enemies
-	var victim = defenders[lane]
+	var target_slot: int = lane % 4
+	if enemy and board[target_slot] == null:
+		target_slot += 4
+	var victim = defenders[target_slot]
 	var home: Vector2 = card.position
-	var destination := _slot(lane, not enemy)
+	var destination := _slot(target_slot, not enemy)
 	card.z_index = 15
 	status.text = "%s strikes." % card.animal.capitalize()
 	var tween := create_tween()
@@ -459,7 +463,7 @@ func _strike(card: Node2D, lane: int, enemy := false) -> void:
 	await tween.finished
 	card.z_index = 1
 	if victim and victim.health <= 0:
-		defenders[lane] = null
+		defenders[target_slot] = null
 		await _vanish(victim, false, enemy)
 
 func _end_round() -> void:
@@ -472,7 +476,7 @@ func _end_round() -> void:
 	_clear_selection()
 	busy = true
 	_refresh()
-	for lane in range(4):
+	for lane in range(8):
 		if board[lane]:
 			await _strike(board[lane], lane)
 		if _check_outcome():
@@ -540,7 +544,7 @@ func _draw() -> void:
 			var edge := Color("695745") if row == 0 else Color("8a7048")
 			draw_rect(rect, edge, false, 1)
 			draw_rect(rect.grow(-4), Color("493a2a"), false, 1)
-			if row == 2 and selected and offerings.size() == selected.cost and (board[lane] == null or offerings.has(board[lane])):
+			if row >= 2 and selected and offerings.size() == selected.cost and (board[(row - 2) * 4 + lane] == null or offerings.has(board[(row - 2) * 4 + lane])):
 				draw_rect(rect, AMBER, false, 2)
 	for lane in range(4):
 		var x := 55.5 + lane * 93
@@ -655,13 +659,16 @@ func _role(id: String) -> String:
 
 func _offering_note(lane: int) -> String:
 	var card = board[lane]
-	var threat = enemies[lane] if enemies[lane] else reserve[lane]
+	var column := lane % 4
+	if lane >= 4 and board[column] != null:
+		return "%s in front takes enemy hits first." % board[column].animal.capitalize()
+	var threat = enemies[column] if enemies[column] else reserve[column]
 	if threat:
 		return "%s threatens this lane." % threat.animal.capitalize()
 	return "No visible threat in this lane."
 
 func _toggle_offering(lane: int, inline := false) -> void:
-	if busy or finished or draw_required or lane < 0 or lane > 3 or selected == null or selected.cost == 0 or board[lane] == null:
+	if busy or finished or draw_required or lane < 0 or lane > 7 or selected == null or selected.cost == 0 or board[lane] == null:
 		return
 	var card = board[lane]
 	if offerings.has(card):
@@ -691,21 +698,31 @@ func _open_inspector() -> void:
 		_modal_label("%d of %d offerings marked" % [offerings.size(), selected.cost], 397, 15, AMBER)
 	else:
 		_modal_label("Select a card in your hand first. Its red dots show the number of creatures it needs.", 165, 17)
-		_modal_label("Only creatures on your active row can be offered. Hand cards, queued enemies, and deck cards are not offerings. Each marked creature provides one offering. Marking is reversible until placement.", 260, 14, AMBER)
+		_modal_label("Creatures in either of your rows can be offered. Hand cards, queued enemies, and deck cards are not offerings. Each marked creature provides one offering. Marking is reversible until placement.", 260, 14, AMBER)
 	_modal_label("Giving up a blocker can expose its lane.", 430, 12, AMBER)
-	for lane in range(4):
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(22, 462)
+	scroll.size = Vector2(346, 260)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	modal.add_child(scroll)
+	var rows := VBoxContainer.new()
+	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(rows)
+	for lane in range(8):
 		var card = board[lane]
-		var text := "Lane %d · empty" % (lane + 1)
+		var location := "%s %d" % ["Front" if lane < 4 else "Back", lane % 4 + 1]
+		var text := "%s · empty" % location
 		if card:
-			text = "%s %s · %d attack / %d health\n%s" % ["[MARKED]" if offerings.has(card) else "[OFFER]", card.animal, card.power, card.health, _offering_note(lane)]
-		var button := _button(text, Vector2(22, 462 + lane * 64), Vector2(346, 56), _toggle_offering.bind(lane))
-		button.add_theme_font_size_override("font_size", 11)
+			text = "%s %s · %s · %d attack / %d health\n%s" % ["[MARKED]" if offerings.has(card) else "[OFFER]", card.animal, location, card.power, card.health, _offering_note(lane)]
+		var button := _button(text, Vector2.ZERO, Vector2(330, 56), _toggle_offering.bind(lane))
+		button.add_theme_font_size_override("font_size", 10)
+		button.custom_minimum_size = Vector2(330, 56)
 		button.disabled = card == null or selected == null or selected.cost == 0 or finished or (offerings.size() >= selected.cost and not offerings.has(card))
-		button.reparent(modal)
+		button.reparent(rows)
 
 
 func _open_inline_offering(lane: int) -> void:
-	if busy or finished or lane < 0 or lane > 3 or board[lane] == null:
+	if busy or finished or lane < 0 or lane > 7 or board[lane] == null:
 		return
 	_close_modal()
 	var card = board[lane]
@@ -742,3 +759,21 @@ func _open_inline_offering(lane: int) -> void:
 	var mark := _button("UNMARK OFFERING" if offerings.has(card) else "OFFER THIS CREATURE", Vector2(34, 399), Vector2(322, 44), _toggle_offering.bind(lane, true))
 	mark.disabled = draw_required or selected == null or selected.cost == 0 or (offerings.size() >= selected.cost and not offerings.has(card))
 	mark.reparent(modal)
+
+
+func _opening_deal() -> Array:
+	# Guarantee one playable blood creature plus two different species.
+	var deal: Array = []
+	for id in deck:
+		if DATA[id][3] == 1:
+			deal.append(id)
+			deck.erase(id)
+			break
+	for id in deck.duplicate():
+		if not deal.has(id) and deal.size() < 3:
+			deal.append(id)
+			deck.erase(id)
+	while deal.size() < 3 and not deck.is_empty():
+		deal.append(deck.pop_front())
+	deal.shuffle()
+	return deal

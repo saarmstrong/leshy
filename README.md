@@ -22,3 +22,7 @@ Run `godot --headless --path . --script res://tests/ritual_flow.gd`. Checks cove
 Current captures: `docs/mockups/14-thumb-collapsed.png`, `15-thumb-expanded.png`, and `16-draw-choice.png`. Earlier screenshots document earlier iterations. Physical-phone ergonomics and export validation are still pending.
 
 Generated art and exact prompts live in `assets/art/`. Noto Serif and its license live in `assets/fonts/`. See `PROJECT_PLAN.md` for project scope and design history.
+
+## Inline offerings
+
+Long-press your placed creature for 0.45 seconds to open a compact panel above the player row. It shows current stats, lane threats, and **Offer This Creature** / **Unmark Offering**. Select a blood-cost hand card first to enable marking. Each mark is reversible; choosing a destination still commits the sacrifice and placement. Tap outside the panel to dismiss it. Short taps keep the existing marking/placement behavior; moving more than 12 logical pixels cancels the hold. Holding never also triggers a short tap on release.
