@@ -1,0 +1,12 @@
+# Visual exploration 01
+
+Concept mockups generated with the built-in image generation tool. These images explore visual direction; they are not implemented Godot screens or final UI geometry.
+
+## Prompt
+
+Use case: ui-mockup. Create a polished game art direction comparison sheet with three equally sized tall portrait mobile battle screens side by side, each a complete 9:19.5 screen, no phone hardware. Original minimal woodland horror deck-building card game, working title THE HOLLOW. Inspired by tactile tabletop atmosphere, with original animal woodcuts and original interface. Directions labeled above each screen: EMBERWOOD, MOONLIT SLATE, FIELD FOLIO. The three screens share identical clear gameplay layout: small mysterious opponent presence and compact damage balance at top, four exactly aligned columns with one enemy row and one player row in the middle, a large readable hand of three cards below, draw piles and an END TURN button at the bottom. Essential attack and health numerals on cards, very sparse text, clean large tap targets. Enemy intents as small markers above the board. Emberwood uses charcoal wood, cream engraved animal cards, restrained amber candlelight. Moonlit Slate uses dark cool slate, bone white printed animals, muted moss highlights, graphic minimal shapes. Field Folio uses faded parchment naturalist animal illustrations over dark forest green cloth, elegant flat print design. Beautiful sophisticated independent game art, restrained texture, artful negative space, crisp functional UI, readable actual mobile screen composition, subtle tactile depth. Use original moth, hare, crow, and fox illustrations. No Inscryption logos, characters, copied card frames, ornate fantasy HUD, tiny illegible paragraphs, device frames, or extra panels. Landscape comparison sheet, three large portrait screens filling the canvas, neutral dark margins and small refined direction labels. This is a visual concept, not a screenshot of an existing game.
+
+
+## In-game ritual captures
+
+`04-ritual-table.png` shows the starting hand and board. `05-sacrifice-selection.png` shows a two-offering stag play. `06-sacrifice-ash.png` captures sacrifice in progress, `07-stag-placed.png` shows the new creature on the table, and `08-round-transition.png` captures the darkened enemy turn message. These are rendered Godot captures, not generated UI images. Earlier captures document earlier visual iterations.

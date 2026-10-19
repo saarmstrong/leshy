@@ -1,0 +1,15 @@
+## Ritual creatures — art pass 02
+
+Added `hare.png`, `raven.png`, and `stag.png`, generated with the built-in image tool using `fox.png` as the style reference. The live game draws their cost dots, names, power, and health. Exact prompts:
+
+### hare
+
+Use case: stylized-concept. Production card face for Emberwood, an original minimal woodland horror card game. Reference image: match its exact aged parchment, black engraved animal style, border weight and empty text zones. ONE flat rectangular portrait 2:3 card face filling image edge to edge, orthographic, no surrounding surface or cast shadow. Warm bone parchment, worn ink double-rule border inset 4 percent. Center illustration: an alert seated woodland hare, long upright ears, exquisitely detailed black woodcut / scratchboard ink engraving, etched fur or feathers, sparse dead grasses, haunting naturalist atmosphere. Illustration contained in middle 65 percent of height. TOP 14 percent and BOTTOM 17 percent EMPTY parchment for live game UI. No letters, numbers, words, icons, stats, logos or extra panels. Black ink and warm bone paper only, same scale and composition as reference, no colorful fantasy art.
+
+### raven
+
+Use case: stylized-concept. Production card face for Emberwood, an original minimal woodland horror card game. Reference image: match its exact aged parchment, black engraved animal style, border weight and empty text zones. ONE flat rectangular portrait 2:3 card face filling image edge to edge, orthographic, no surrounding surface or cast shadow. Warm bone parchment, worn ink double-rule border inset 4 percent. Center illustration: a watchful raven perched on a dead branch, heavy black feathers, exquisitely detailed black woodcut / scratchboard ink engraving, etched fur or feathers, sparse dead grasses, haunting naturalist atmosphere. Illustration contained in middle 65 percent of height. TOP 14 percent and BOTTOM 17 percent EMPTY parchment for live game UI. No letters, numbers, words, icons, stats, logos or extra panels. Black ink and warm bone paper only, same scale and composition as reference, no colorful fantasy art.
+
+### stag
+
+Use case: stylized-concept. Production card face for Emberwood, an original minimal woodland horror card game. Reference image: match its exact aged parchment, black engraved animal style, border weight and empty text zones. ONE flat rectangular portrait 2:3 card face filling image edge to edge, orthographic, no surrounding surface or cast shadow. Warm bone parchment, worn ink double-rule border inset 4 percent. Center illustration: a gaunt stag with branching antlers, solemn and uncanny, exquisitely detailed black woodcut / scratchboard ink engraving, etched fur or feathers, sparse dead grasses, haunting naturalist atmosphere. Illustration contained in middle 65 percent of height. TOP 14 percent and BOTTOM 17 percent EMPTY parchment for live game UI. No letters, numbers, words, icons, stats, logos or extra panels. Black ink and warm bone paper only, same scale and composition as reference, no colorful fantasy art.
